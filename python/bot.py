@@ -37,12 +37,8 @@ class Bot:
             if matrixSolve[0][0] * intersect[0] + initPosition[0] >0 or matrixSolve[1][1] * intersect[1] + initPosition[1] >0:
                 continue
             return theta
-=======
-        game_message.meteors
->>>>>>> 24fddd1a02ae0901137217d3a9970bbcd2f69054
-
+        
         return [
             RotateAction(angle=15 * self.direction),
             ShootAction(),
         ]
->>>>>>> bd402aa3df59d431f057dc8302d6063a30ef4217
