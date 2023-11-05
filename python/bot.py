@@ -2,6 +2,7 @@ from game_message import *
 from actions import *
 from MeteorTargeted import *
 from Utility import *
+from findClosest import *
 
 import numpy as np
 
@@ -32,7 +33,14 @@ class Bot:
         if meteorToChoose != None:
             self.meteorTargetedList.removeMeteorIdFromList(meteorToChoose.id)
             theta = calcAngleShoot(game_message, meteorToChoose)
-
+            if(theta == None):
+                print("BAD MATH")
+                print("BAD MATH")
+                print("BAD MATH")
+                print("BAD MATH")
+                print("BAD MATH")
+                print("BAD MATH")
+        theta = calcAngleShoot(game_message, GetClosestMeteorite(game_message.meteors))
         if(theta != -90 and theta != None):
             print(theta)
             return [
