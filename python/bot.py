@@ -17,11 +17,6 @@ class Bot:
         """
 
         self.meteorTargetedList.addNewMeteorToList(game_message.meteors)
-        if game_message.cannon.orientation >= 45:
-            self.direction = -1
-        elif game_message.cannon.orientation <= -45:
-            self.direction = 1
-        print(self.meteorTargetedList.targetedID)
 
         theta = calcAngleShoot(game_message, game_message.meteors[0])
         if (theta == None):
