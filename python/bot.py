@@ -24,10 +24,11 @@ class Bot:
         print("PENIS")
         print(self.meteorTargetedList.targetedID)
 
-        initVelocity = (1,1)
+        initVelocity = 1
         initPosition = (0,0)
+        degToRad = 1/np.pi * 1/180
         for theta in range(-90,90):
-            velProj = initVelocity @ np.array([[np.cos(0.5*theta/np.pi()),0],[0,[np.sin(0.5*theta/np.pi()),0]]])
+            velProj = initVelocity * np.array([np.cos(degToRad*theta), np.sin(degToRad*theta)])
             posSolve = posMeteor - initPosition
             matrixSolve = np.array([velProj, velMeteor])
             intersect = np.linalg.solve(matrixSolve,posSolve.T)
