@@ -1,6 +1,5 @@
 class MeteorTarget:
-    def __init__(self, meteorsList):
-        self.meteors = meteorsList
+    def __init__(self):
         self.targetedID = list()
 
     def isMeteorInObject(self, id):
@@ -30,7 +29,3 @@ class MeteorTarget:
 
     def addMeteor(self, meteor):
         self.meteors.append(meteor)
-
-    def updateMeteorList(self, meteorList):
-        for meteor in meteorList:
-            if (self.isMeteorInObject(meteor)):
