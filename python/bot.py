@@ -1,7 +1,7 @@
 from game_message import *
 from actions import *
-<<<<<<< HEAD
 from MeteorTargeted import *
+from Utility import *
 
 import numpy as np
 
@@ -21,25 +21,12 @@ class Bot:
             self.direction = -1
         elif game_message.cannon.orientation <= -45:
             self.direction = 1
-        print("PENIS")
         print(self.meteorTargetedList.targetedID)
 
-        initVelocity = 1
-        initPosition = (0,0)
-        degToRad = 1/np.pi * 1/180
-        for theta in range(-90,90):
-            velProj = initVelocity * np.array([np.cos(degToRad*theta), np.sin(degToRad*theta)])
-            posSolve = posMeteor - initPosition
-            matrixSolve = np.array([velProj, velMeteor])
-            intersect = np.linalg.solve(matrixSolve,posSolve.T)
-
-            if intersect[0] >1000 or intersect[1] > 1000 or intersect[0] <0 or intersect[1] <0:
-                continue
-            if matrixSolve[0][0] * intersect[0] + initPosition[0] >0 or matrixSolve[1][1] * intersect[1] + initPosition[1] >0:
-                continue
-            return theta
-
+        theta = calcAngleShoot(game_message, game_message.meteors[0])
+        if (theta == None):
+            theta = 0
         return [
-            RotateAction(angle=15 * self.direction),
+            RotateAction(theta - game_message.cannon.orientation),
             ShootAction(),
         ]
