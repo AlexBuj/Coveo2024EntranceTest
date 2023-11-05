@@ -16,6 +16,8 @@ class Bot:
         elif game_message.cannon.orientation <= -45:
             self.direction = 1
 
+        game_message.meteors
+
         return [
             RotateAction(angle=15 * self.direction),
             ShootAction(),
