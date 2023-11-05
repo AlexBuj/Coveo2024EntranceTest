@@ -2,11 +2,13 @@ class MeteorTarget:
     def __init__(self, meteorsList):
         self.meteors = meteorsList
         self.targetedID = list()
+
     def isMeteorInObject(self, id):
         for meteor in self.meteors:
             if(meteor.id == id):
                 return False
         return True
+
     def updateMeteor(self, meteor):
         for meteor in self.meteors:
             if (meteor.id == id):
@@ -14,7 +16,7 @@ class MeteorTarget:
                 self.meteors.append(meteor)
 
     def addNewMeteorToList(self, newMeteorList):
-        idOccurence = 0;
+        idOccurence = 0
         for newMeteor in newMeteorList:
             for meteorID in self.targetedID:
                 if(newMeteor.id == meteorID):
@@ -22,8 +24,13 @@ class MeteorTarget:
             if(idOccurence == 0):
                 self.targetedID.append(newMeteor)
             idOccurence = 0
+
+    def removeMeteorIdFromList(self, id):
+        self.targetedID.remove(id)
+
     def addMeteor(self, meteor):
         self.meteors.append(meteor)
+
     def updateMeteorList(self, meteorList):
         for meteor in meteorList:
             if (self.isMeteorInObject(meteor)):
