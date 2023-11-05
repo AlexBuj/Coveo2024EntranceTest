@@ -17,7 +17,10 @@ def calcAngleShoot(game_message, meteor):
 
         if intersect[0] > 1000 or intersect[1] > 1000 or intersect[0] < 0 or intersect[1] < 0:
             continue
-        if matrixSolve[0][0] * intersect[0] + initPosition[0] > 0 or matrixSolve[1][1] * intersect[1] + initPosition[
-            1] > 0:
+
+        intersectionX =  matrixSolve[0][0] * intersect[0] + initPosition[0]
+        intersectionY = matrixSolve[1][1] * intersect[1] + initPosition[1]
+
+        if intersectionX < 0 or intersectionY < 0:
             continue
         return theta

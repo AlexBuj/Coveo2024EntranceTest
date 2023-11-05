@@ -19,6 +19,9 @@ class Bot:
         self.meteorTargetedList.addNewMeteorToList(game_message.meteors)
 
         theta = calcAngleShoot(game_message, game_message.meteors[0])
+        if(theta != -90 and theta != None):
+            print(theta)
+
         if (theta == None):
             theta = 0
         return [
