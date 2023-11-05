@@ -17,7 +17,9 @@ class Bot:
         """
 
         self.meteorTargetedList.addNewMeteorToList(game_message.meteors)
-        meteorToChoose = game_message.meteors[0]
+
+        meteorToChoose = None
+
         for id in self.meteorTargetedList.targetedID:
             closestMeteor = 10000000
             for meteor in game_message.meteors:
@@ -26,15 +28,17 @@ class Bot:
                         closestMeteor = meteor.position.x - game_message.cannon.position.x
                         meteorToChoose = meteor
 
-        self.meteorTargetedList.removeMeteorIdFromList(meteorToChoose.id)
+        theta = None
+        if meteorToChoose != None:
+            self.meteorTargetedList.removeMeteorIdFromList(meteorToChoose.id)
+            theta = calcAngleShoot(game_message, meteorToChoose)
 
-        theta = calcAngleShoot(game_message, meteorToChoose)
         if(theta != -90 and theta != None):
             print(theta)
 
         if (theta == None):
             theta = 0
-
+        print((game_message.score))
         return [
             RotateAction(theta - game_message.cannon.orientation),
             ShootAction(),
