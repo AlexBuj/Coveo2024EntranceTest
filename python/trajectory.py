@@ -14,10 +14,3 @@ def Preshoot(game_message: GameMessage)->Vector:
     y = random.randint(0, maxY)
     return Vector(x, y)
 
-
-
-#return [
-#        RotateAction(angle=15 * self.direction),
-##        ShootAction(),
-#   ]
->>>>>>> b261a632ddc2732ac0364484f14bc15d188cc792
