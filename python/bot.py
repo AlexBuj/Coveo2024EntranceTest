@@ -19,8 +19,17 @@ class Bot:
             matrixSolve = np.array([velProj, velMeteor])
             intersect = np.linalg.solve(matrixSolve,posSolve.T)
 
+<<<<<<< HEAD
             if intersect[0] >1000 or intersect[1] > 1000 or intersect[0] <0 or intersect[1] <0:
                 continue
             if matrixSolve[0][0] * intersect[0] + initPosition[0] >0 or matrixSolve[1][1] * intersect[1] + initPosition[1] >0:
                 continue
             return theta
+=======
+        game_message.meteors
+
+        return [
+            RotateAction(angle=15 * self.direction),
+            ShootAction(),
+        ]
+>>>>>>> bd402aa3df59d431f057dc8302d6063a30ef4217
