@@ -9,9 +9,9 @@ class MeteorTarget:
         for newMeteor in newMeteorList:
             for meteorID in self.targetedID:
                 if(newMeteor.id == meteorID):
-                    idOccurence
+                    idOccurence = idOccurence + 1
             if(idOccurence == 0):
-                self.targetedID.append(newMeteor)
+                self.targetedID.append(newMeteor.id)
             idOccurence = 0
 
     def removeMeteorIdFromList(self, id):
