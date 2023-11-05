@@ -35,11 +35,11 @@ class Bot:
 
         if(theta != -90 and theta != None):
             print(theta)
-
+            return [
+                RotateAction(theta - game_message.cannon.orientation),
+                ShootAction(),
+            ]
         if (theta == None):
             theta = 0
         print((game_message.score))
-        return [
-            RotateAction(theta - game_message.cannon.orientation),
-            ShootAction(),
-        ]
+        return []
