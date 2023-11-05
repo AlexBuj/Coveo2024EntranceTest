@@ -37,7 +37,7 @@ class Bot:
             if matrixSolve[0][0] * intersect[0] + initPosition[0] >0 or matrixSolve[1][1] * intersect[1] + initPosition[1] >0:
                 continue
             return theta
-        
+
         return [
             RotateAction(angle=15 * self.direction),
             ShootAction(),
