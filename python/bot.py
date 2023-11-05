@@ -25,6 +25,6 @@ class Bot:
         if (theta == None):
             theta = 0
         return [
-            RotateAction(theta),
+            RotateAction(theta- game_message.cannon.orientation),
             ShootAction(),
         ]
